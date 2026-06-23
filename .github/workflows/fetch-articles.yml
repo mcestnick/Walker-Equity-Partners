@@ -11,17 +11,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Fetch RSS and save as JSON
+      - name: Fetch RSS feed
         run: |
           curl -s -L \
             -H "Accept: application/rss+xml, application/xml, text/xml" \
             -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
             "https://walkerreview.substack.com/feed" \
             -o feed.xml
-          python3 -c "
-          import json, xml.etree.ElementTree as ET, re
-          with open('feed.xml', 'r', encoding='utf-8') as f:
-              content = f.read()
-          print('First 200 chars:', content[:200])
-          root = ET.fromstring(content)
-          items
+          echo "Feed fetched"
+          head -c 200 feed.xml
+
+      - name: Parse RSS to JSON
+        run: python3 parse_feed.py
+
+      - name: Commit articles.json
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add articles.json
+          git diff --staged --quiet || git commit -m "Update articles"
+          git push

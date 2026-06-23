@@ -6,7 +6,7 @@
   <title>Walker Equity Partners</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -23,11 +23,9 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; font-size: 16px; }
-
     body {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
       background: var(--white);
       color: var(--navy);
       overflow-x: hidden;
@@ -45,7 +43,6 @@
       height: 72px;
       background: var(--navy);
       border-bottom: 1px solid var(--border);
-      transition: background 0.3s;
     }
 
     .nav-logo {
@@ -55,10 +52,10 @@
       text-decoration: none;
     }
     .nav-logo-main {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Playfair Display', serif;
       font-weight: 500;
-      font-size: 1.15rem;
-      letter-spacing: 0.12em;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
       color: var(--white);
       text-transform: uppercase;
     }
@@ -68,7 +65,7 @@
       color: var(--gold);
       text-transform: uppercase;
       font-weight: 300;
-      margin-top: 1px;
+      margin-top: 2px;
     }
 
     .nav-links {
@@ -80,7 +77,7 @@
       font-size: 0.72rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.65);
+      color: rgba(255,255,255,0.55);
       text-decoration: none;
       transition: color 0.2s;
       cursor: pointer;
@@ -93,7 +90,6 @@
       padding-bottom: 2px;
     }
 
-    /* Hamburger */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -108,7 +104,6 @@
       width: 24px;
       height: 1.5px;
       background: var(--white);
-      transition: 0.3s;
     }
 
     /* ─── PAGES ──────────────────────────────────────────── */
@@ -116,12 +111,12 @@
       display: none;
       min-height: 100vh;
       padding-top: 72px;
-      animation: fadeIn 0.45s ease;
+      animation: fadeIn 0.4s ease;
     }
     .page.active { display: block; }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
+      from { opacity: 0; transform: translateY(8px); }
       to   { opacity: 1; transform: translateY(0); }
     }
 
@@ -136,19 +131,8 @@
       overflow: hidden;
     }
 
-    /* Subtle geometric texture */
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(26,68,128,0.15) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(26,68,128,0.15) 1px, transparent 1px);
-      background-size: 80px 80px;
-      pointer-events: none;
-    }
 
-    /* Gold accent line */
+
     .hero::after {
       content: '';
       position: absolute;
@@ -156,7 +140,7 @@
       top: 0; bottom: 0;
       width: 1px;
       background: linear-gradient(to bottom, transparent, var(--gold), transparent);
-      opacity: 0.4;
+      opacity: 0.35;
     }
 
     .hero-inner {
@@ -176,16 +160,16 @@
     }
 
     .hero-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      font-size: clamp(3rem, 6vw, 5.5rem);
-      line-height: 1.08;
+      font-family: 'Playfair Display', serif;
+      font-weight: 400;
+      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      line-height: 1.1;
       color: var(--white);
       margin-bottom: 32px;
     }
     .hero-title em {
       font-style: italic;
-      color: rgba(255,255,255,0.6);
+      color: rgba(255,255,255,0.55);
     }
 
     .hero-divider {
@@ -198,8 +182,8 @@
     .hero-body {
       font-size: 1rem;
       line-height: 1.8;
-      color: rgba(255,255,255,0.55);
-      max-width: 520px;
+      color: rgba(255,255,255,0.5);
+      max-width: 500px;
       font-weight: 300;
     }
 
@@ -222,7 +206,7 @@
       cursor: pointer;
       border: 1px solid var(--royal);
       transition: background 0.2s, border-color 0.2s;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
     }
     .btn-primary:hover { background: var(--royal-light); border-color: var(--royal-light); }
 
@@ -230,7 +214,7 @@
       display: inline-block;
       padding: 14px 36px;
       background: transparent;
-      color: rgba(255,255,255,0.7);
+      color: rgba(255,255,255,0.65);
       font-size: 0.7rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -238,11 +222,11 @@
       cursor: pointer;
       border: 1px solid rgba(255,255,255,0.2);
       transition: border-color 0.2s, color 0.2s;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Inter', sans-serif;
     }
     .btn-ghost:hover { border-color: rgba(255,255,255,0.5); color: var(--white); }
 
-    /* Pillars section */
+    /* Pillars */
     .pillars {
       padding: 100px 60px;
       background: var(--off-white);
@@ -255,13 +239,13 @@
       margin-bottom: 20px;
     }
     .pillars-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
       font-weight: 400;
       color: var(--navy);
       margin-bottom: 64px;
-      max-width: 600px;
-      line-height: 1.2;
+      max-width: 560px;
+      line-height: 1.25;
     }
     .pillars-grid {
       display: grid;
@@ -273,35 +257,24 @@
     .pillar {
       background: var(--white);
       padding: 48px 40px;
-      position: relative;
-    }
-    .pillar::before {
-      content: attr(data-num);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 4rem;
-      font-weight: 300;
-      color: rgba(12,28,53,0.06);
-      position: absolute;
-      top: 24px; right: 32px;
-      line-height: 1;
     }
     .pillar-heading {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
       font-weight: 500;
       color: var(--navy);
       margin-bottom: 16px;
     }
     .pillar-body {
       font-size: 0.875rem;
-      line-height: 1.75;
+      line-height: 1.8;
       color: #4A5568;
       font-weight: 300;
     }
     .pillar-rule {
       width: 28px;
       height: 2px;
-      background: var(--royal);
+      background: var(--gold);
       margin-bottom: 20px;
     }
 
@@ -318,7 +291,7 @@
       right: -100px; top: -100px;
       width: 500px; height: 500px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(26,68,128,0.3), transparent 70%);
+      background: radial-gradient(circle, rgba(26,68,128,0.25), transparent 70%);
       pointer-events: none;
     }
     .page-eyebrow {
@@ -329,11 +302,11 @@
       margin-bottom: 20px;
     }
     .page-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      font-weight: 300;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+      font-weight: 400;
       color: var(--white);
-      line-height: 1.1;
+      line-height: 1.15;
     }
 
     .about-body {
@@ -356,11 +329,11 @@
       margin-bottom: 16px;
     }
     .about-block-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
       font-weight: 400;
       color: var(--navy);
-      line-height: 1.2;
+      line-height: 1.25;
       margin-bottom: 24px;
     }
     .about-block-text {
@@ -396,16 +369,14 @@
     .about-full {
       padding: 60px;
       background: var(--navy);
-      color: rgba(255,255,255,0.6);
+      color: rgba(255,255,255,0.55);
     }
-    .about-full-inner {
-      max-width: 700px;
-    }
+    .about-full-inner { max-width: 700px; }
     .about-full .page-eyebrow { color: var(--gold); }
     .about-full-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
-      font-weight: 300;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      font-weight: 400;
       color: var(--white);
       margin-bottom: 24px;
     }
@@ -413,107 +384,6 @@
       font-size: 0.9375rem;
       line-height: 1.9;
       font-weight: 300;
-    }
-
-    /* ─── TEAM ───────────────────────────────────────────── */
-    .team-hero {
-      background: var(--navy);
-      padding: 90px 60px 80px;
-    }
-
-    .team-body {
-      padding: 80px 60px;
-    }
-
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .team-member-card {
-      display: flex;
-      flex-direction: column;
-      border: 1px solid var(--border-dark);
-      background: var(--white);
-    }
-
-    .team-member-card .team-avatar {
-      aspect-ratio: 3/4;
-      width: 100%;
-      background: var(--navy-mid);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .team-member-info {
-      padding: 28px 28px 24px;
-    }
-
-    .team-member-card .team-name {
-      font-size: 1.5rem;
-      margin-bottom: 4px;
-    }
-
-    .team-member-card .team-title {
-      font-size: 0.65rem;
-      margin-bottom: 20px;
-    }
-
-    .team-member-card .team-divider {
-      margin-bottom: 20px;
-    }
-
-    .team-dropdown-btn {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      background: none;
-      border: none;
-      border-top: 1px solid var(--border-dark);
-      padding: 14px 0 0;
-      cursor: pointer;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--royal);
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-    .team-dropdown-btn:hover { color: var(--navy); }
-    .team-dropdown-btn svg {
-      transition: transform 0.3s;
-      flex-shrink: 0;
-    }
-    .team-dropdown-btn[aria-expanded="true"] svg {
-      transform: rotate(180deg);
-    }
-
-    .team-dropdown-body {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.3s ease;
-    }
-    .team-dropdown-body.open {
-      max-height: 400px;
-      padding-top: 16px;
-    }
-    .team-dropdown-body .team-bio {
-      font-size: 0.875rem;
-      line-height: 1.75;
-      color: #4A5568;
-      font-weight: 300;
-    }
-
-    @media (max-width: 900px) {
-      .team-grid { grid-template-columns: 1fr; max-width: 380px; }
     }
 
     /* ─── INSIGHTS ───────────────────────────────────────── */
@@ -528,9 +398,39 @@
       min-height: 60vh;
     }
 
+    .insights-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 56px;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .insights-tab {
+      padding: 12px 28px 12px 0;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-family: 'Inter', sans-serif;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .insights-tab:hover { color: var(--navy); }
+    .insights-tab.active {
+      color: var(--navy);
+      border-bottom-color: var(--gold);
+      font-weight: 500;
+    }
+
+    .insights-panel { display: none; }
+    .insights-panel.active { display: block; }
+
     .insights-intro {
       max-width: 600px;
-      margin-bottom: 60px;
+      margin-bottom: 48px;
     }
     .insights-intro-text {
       font-size: 0.9375rem;
@@ -593,11 +493,11 @@
       margin-bottom: 14px;
     }
     .article-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.35rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
       font-weight: 500;
       color: var(--navy);
-      line-height: 1.3;
+      line-height: 1.35;
       margin-bottom: 14px;
     }
     .article-excerpt {
@@ -624,6 +524,107 @@
     }
     .article-card:hover .article-arrow { transform: translateX(4px); }
 
+    /* Loading / empty state */
+    .articles-loading {
+      grid-column: 1 / -1;
+      padding: 60px 36px;
+      background: var(--white);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
+    /* Reports panel */
+    .reports-intro {
+      max-width: 600px;
+      margin-bottom: 48px;
+    }
+    .reports-intro-text {
+      font-size: 0.9375rem;
+      line-height: 1.85;
+      color: #4A5568;
+      font-weight: 300;
+    }
+    .reports-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1px;
+      background: var(--border-dark);
+      border: 1px solid var(--border-dark);
+    }
+    .report-card {
+      background: var(--white);
+      padding: 40px 36px;
+      text-decoration: none;
+      display: block;
+      transition: background 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .report-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--gold), var(--royal));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .report-card:hover { background: #FAFAF8; }
+    .report-card:hover::after { transform: scaleX(1); }
+    .report-quarter {
+      font-size: 0.6rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+    .report-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.35;
+      margin-bottom: 14px;
+    }
+    .report-desc {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: #718096;
+      font-weight: 300;
+      margin-bottom: 28px;
+    }
+    .report-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .report-label {
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+    .report-arrow {
+      font-size: 0.85rem;
+      color: var(--gold);
+      transition: transform 0.2s;
+    }
+    .report-card:hover .report-arrow { transform: translateX(4px); }
+    .reports-empty {
+      grid-column: 1 / -1;
+      padding: 60px 36px;
+      background: var(--white);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+    }
+
     /* ─── FOOTER ─────────────────────────────────────────── */
     footer {
       background: var(--navy);
@@ -640,7 +641,7 @@
     .footer-copy {
       margin-top: 16px;
       font-size: 0.75rem;
-      color: rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.28);
       line-height: 1.6;
       max-width: 280px;
     }
@@ -653,16 +654,15 @@
       font-size: 0.72rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
+      color: rgba(255,255,255,0.4);
       text-decoration: none;
       cursor: pointer;
       transition: color 0.2s;
     }
     .footer-links a:hover { color: var(--white); }
-
     .footer-contact {
       font-size: 0.825rem;
-      color: rgba(255,255,255,0.45);
+      color: rgba(255,255,255,0.4);
       line-height: 1.8;
     }
     .footer-contact a {
@@ -685,19 +685,17 @@
         gap: 20px;
         border-bottom: 1px solid var(--border);
       }
-
       .hero-inner { padding: 0 24px; }
       .hero::after { left: 24px; }
       .pillars { padding: 60px 24px; }
       .pillars-grid { grid-template-columns: 1fr; }
-      .about-hero, .team-hero, .insights-hero { padding: 60px 24px 50px; }
-      .about-body, .team-body, .insights-body { padding: 50px 24px; }
+      .about-hero, .insights-hero { padding: 60px 24px 50px; }
+      .about-body, .insights-body { padding: 50px 24px; }
       .about-block { grid-template-columns: 1fr; gap: 40px; }
-      .team-card { grid-template-columns: 1fr; }
-      .team-avatar { max-width: 200px; }
-      .articles-grid { grid-template-columns: 1fr; }
+      .articles-grid, .reports-grid { grid-template-columns: 1fr; }
       footer { padding: 40px 24px; flex-direction: column; gap: 32px; }
       .about-full { padding: 50px 24px; }
+      .insights-tab { padding: 12px 20px 12px 0; }
     }
   </style>
 </head>
@@ -716,7 +714,6 @@
     <ul class="nav-links" id="navLinks">
       <li><a onclick="showPage('home')"     class="active" id="nav-home">Home</a></li>
       <li><a onclick="showPage('about')"              id="nav-about">About</a></li>
-      <li><a onclick="showPage('team')"               id="nav-team">Team</a></li>
       <li><a onclick="showPage('insights')"           id="nav-insights">Insights</a></li>
     </ul>
   </nav>
@@ -726,13 +723,12 @@
 
     <section class="hero">
       <div class="hero-inner">
-        <p class="hero-eyebrow">Walker Equity Partners &nbsp;·&nbsp; London &amp; Toronto</p>
         <h1 class="hero-title">
           Investing where<br><em>behaviour creates</em><br>opportunity.
         </h1>
         <div class="hero-divider"></div>
         <p class="hero-body">
-          A focused equity fund combining rigorous fundamental analysis with quantitative tools and algorithmic screening to identify systematic mispricings in UK small and micro-cap markets — where institutional neglect and investor psychology consistently diverge from fundamental value.
+          An independent investment manager focused on global small cap equities. We look for businesses that the market has mispriced; not because the information isn't there, but because human behaviour produces patterns, for those who know where to look.
         </p>
         <div class="hero-cta">
           <button class="btn-primary" onclick="showPage('about')">Our Philosophy</button>
@@ -742,23 +738,23 @@
     </section>
 
     <section class="pillars">
-      <p class="pillars-label">Our Edge</p>
-      <h2 class="pillars-title">Fundamental judgment, sharpened by quantitative tools</h2>
+      <p class="pillars-label">The Approach</p>
+      <h2 class="pillars-title">Rigorous research. Behavioural awareness. Long-term conviction.</h2>
       <div class="pillars-grid">
-        <div class="pillar" data-num="01">
+        <div class="pillar">
           <div class="pillar-rule"></div>
-          <h3 class="pillar-heading">Behavioural Diagnosis</h3>
-          <p class="pillar-body">We systematically identify where psychological biases — anchoring, recency bias, neglect — create persistent gaps between price and intrinsic value in under-followed markets.</p>
+          <h3 class="pillar-heading">Behavioural Edge</h3>
+          <p class="pillar-body">The gap between price and value is rarely an information problem. It is a behavioural one. Understanding why investors make the mistakes they do, and when, is central to how we invest.</p>
         </div>
-        <div class="pillar" data-num="02">
+        <div class="pillar">
           <div class="pillar-rule"></div>
           <h3 class="pillar-heading">Fundamental Discipline</h3>
-          <p class="pillar-body">Every position is built on rigorous bottom-up analysis: quality of business, management integrity, balance sheet strength, and a clearly defined margin of safety.</p>
+          <p class="pillar-body">Fundamental research is the foundation. We analyse competitive position, management quality, and balance sheet strength, supported by rigorous quantitative analysis, to arrive at a clear, defensible view of intrinsic value.</p>
         </div>
-        <div class="pillar" data-num="03">
+        <div class="pillar">
           <div class="pillar-rule"></div>
-          <h3 class="pillar-heading">Quantitative Rigour</h3>
-          <p class="pillar-body">Algorithmic screening and systematic data analysis surface opportunities and stress-test theses — ensuring discretionary judgment is informed by evidence, not anchored to it.</p>
+          <h3 class="pillar-heading">Concentrated Conviction</h3>
+          <p class="pillar-body">We run a small number of high-conviction positions. Diversification without understanding is not risk management. It is the illusion of it.</p>
         </div>
       </div>
     </section>
@@ -771,7 +767,7 @@
     <section class="about-hero">
       <p class="page-eyebrow">Our Philosophy</p>
       <h1 class="page-title">
-        Value exists at the<br>intersection of analysis<br>and human behaviour.
+        The market is not always<br>wrong, but when it is,<br><em>it tends to be explicably so.</em>
       </h1>
     </section>
 
@@ -779,143 +775,44 @@
       <div class="about-block">
         <div>
           <p class="about-block-label">The Thesis</p>
-          <h2 class="about-block-title">Markets are not always efficient — especially at the margins.</h2>
+          <h2 class="about-block-title">Inefficiency is behavioural, not informational.</h2>
         </div>
         <div>
           <p class="about-block-text">
-            Walker Equity Partners operates on a foundational conviction: in the small and micro-cap market, prices frequently diverge from intrinsic value — not because information is unavailable, but because investors systematically misprocess it.
+            In global small and micro-cap markets, prices diverge from intrinsic value not because the information is unavailable, but because most investors struggle to act on it rationally. These markets are under-followed, under-researched, and structurally neglected, which means behavioural mispricings are more likely to persist, and more likely to be exploitable.
           </p>
           <p class="about-block-text">
-            Anchoring, availability bias, extrapolation of recent trends, and the tendency to avoid complexity all create recurring patterns of mispricing. Our process is designed to identify, diagnose, and exploit these patterns — combining discretionary fundamental judgment with systematic, quantitative tools to do so with consistency and rigour.
-          </p>
-          <p class="about-block-text">
-            This integrated approach — sometimes called quantamental — reflects a straightforward belief: algorithms surface the signal, but human judgment determines the decision.
+            Our process is built around that conviction, combining rigorous fundamental and quantitative analysis with a disciplined awareness of the cognitive forces that move prices away from value.
           </p>
         </div>
       </div>
 
       <div class="about-block">
         <div>
-          <p class="about-block-label">The Market</p>
-          <h2 class="about-block-title">Small and micro-cap: where opportunity concentrates.</h2>
+          <p class="about-block-label">Our Approach</p>
+          <h2 class="about-block-title">Long-only. Concentrated. Patient.</h2>
         </div>
         <div>
           <p class="about-block-text">
-            The small and micro-cap universe represents a structurally advantaged hunting ground. Analyst coverage is sparse. Institutional mandates exclude most names by size. Liquidity constraints deter the largest funds from participating.
-          </p>
-          <p class="about-block-text">
-            The result is a market segment where diligent, patient, fundamentals-driven investors retain a durable informational and behavioural edge unavailable at larger capitalisations.
+            Concentration is a choice. So is patience. We run a small number of high-conviction positions and hold them for as long as the thesis remains intact. We do not attempt to time markets or predict macro outcomes. We simply try to be right about businesses, and give those businesses time to prove it.
           </p>
         </div>
       </div>
 
       <div class="about-block">
         <div>
-          <p class="about-block-label">Our Process</p>
-          <h2 class="about-block-title">Five questions before every investment decision.</h2>
+          <p class="about-block-label">On Risk</p>
+          <h2 class="about-block-title">Being wrong is inevitable. What matters is understanding why.</h2>
         </div>
         <div>
-          <ul class="principles-list">
-            <li>Business quality — durable competitive position, economics, and management integrity</li>
-            <li>Valuation — intrinsic value relative to price, with an explicit margin of safety</li>
-            <li>Behavioural diagnosis — what bias or structural factor is creating the opportunity</li>
-            <li>Pre-mortem — what would make this investment wrong, and how likely is each scenario</li>
-            <li>Exit criteria — defined conditions under which we would reduce or exit the position</li>
-          </ul>
+          <p class="about-block-text">
+            Being wrong is inevitable. What matters is understanding why, and whether the thesis was flawed or simply early. We distinguish between price risk and fundamental risk. A falling price is not a reason to sell. A broken thesis is.
+          </p>
         </div>
-      </div>
-    </section>
-
-    <section class="about-full">
-      <div class="about-full-inner">
-        <p class="page-eyebrow">Our Approach</p>
-        <h3 class="about-full-title">Long-only. Concentrated. Patient.</h3>
-        <p class="about-full-text">
-          Walker Equity Partners runs a long-only, concentrated book of high-conviction positions. We do not attempt to predict macroeconomic outcomes, time markets, or rotate between themes. We identify exceptional businesses available at irrational prices and hold them until that irrationality resolves — or until our thesis is broken.
-        </p>
-        <p class="about-full-text" style="margin-top:18px;">
-          This is not a strategy optimised for short-term performance metrics. It is built for compounding — and for the long-term track record that demonstrates, in practice, what disciplined behavioural investing can achieve.
-        </p>
       </div>
     </section>
 
   </div><!-- /page-about -->
-
-  <!-- ══════════════ TEAM PAGE ══════════════ -->
-  <div class="page" id="page-team">
-
-    <section class="team-hero">
-      <p class="page-eyebrow">Our Team</p>
-      <h1 class="page-title">Experienced.<br>Analytical. Disciplined.</h1>
-    </section>
-
-    <section class="team-body">
-      <div class="team-grid">
-
-        <!-- Card 1 -->
-        <div class="team-member-card">
-          <div class="team-avatar">
-            <span class="team-avatar-initials">—</span>
-            <div class="team-avatar-bar"></div>
-          </div>
-          <div class="team-member-info">
-            <h2 class="team-name">Full Name</h2>
-            <p class="team-title">Job Title</p>
-            <div class="team-divider"></div>
-            <button class="team-dropdown-btn" onclick="toggleBio(this)" aria-expanded="false">
-              <span>About</span>
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <div class="team-dropdown-body">
-              <p class="team-bio">Biography and background to be added.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 2 -->
-        <div class="team-member-card">
-          <div class="team-avatar">
-            <span class="team-avatar-initials">—</span>
-            <div class="team-avatar-bar"></div>
-          </div>
-          <div class="team-member-info">
-            <h2 class="team-name">Full Name</h2>
-            <p class="team-title">Job Title</p>
-            <div class="team-divider"></div>
-            <button class="team-dropdown-btn" onclick="toggleBio(this)" aria-expanded="false">
-              <span>About</span>
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <div class="team-dropdown-body">
-              <p class="team-bio">Biography and background to be added.</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3 -->
-        <div class="team-member-card">
-          <div class="team-avatar">
-            <span class="team-avatar-initials">—</span>
-            <div class="team-avatar-bar"></div>
-          </div>
-          <div class="team-member-info">
-            <h2 class="team-name">Full Name</h2>
-            <p class="team-title">Job Title</p>
-            <div class="team-divider"></div>
-            <button class="team-dropdown-btn" onclick="toggleBio(this)" aria-expanded="false">
-              <span>About</span>
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
-            <div class="team-dropdown-body">
-              <p class="team-bio">Biography and background to be added.</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-  </div><!-- /page-team -->
 
   <!-- ══════════════ INSIGHTS PAGE ══════════════ -->
   <div class="page" id="page-insights">
@@ -926,78 +823,39 @@
     </section>
 
     <section class="insights-body">
-      <div class="insights-intro">
-        <p class="insights-intro-text">
-          Our insights are published through <em>The Walker Review</em> — a publication exploring the intersection of human behaviour, financial markets, strategy, and economics. The pieces below represent selected work most relevant to our investment philosophy.
-        </p>
-        <a class="insights-intro-link" href="https://thewalkerreview.substack.com" target="_blank" rel="noopener">
-          Visit The Walker Review on Substack
-        </a>
+
+      <div class="insights-tabs">
+        <button class="insights-tab active" onclick="showTab('articles', this)">The Walker Review</button>
+        <button class="insights-tab" onclick="showTab('reports', this)">Quarterly Reports</button>
       </div>
 
-      <div class="articles-grid">
-
-        <a class="article-card" href="#" target="_blank" rel="noopener">
-          <p class="article-tag">Category</p>
-          <h3 class="article-title">Article Title</h3>
-          <p class="article-excerpt">A short description of the article goes here — two or three sentences summarising the key idea or argument.</p>
-          <div class="article-meta">
-            <span class="article-date">The Walker Review</span>
-            <span class="article-arrow">→</span>
-          </div>
-        </a>
-
-        <a class="article-card" href="#" target="_blank" rel="noopener">
-          <p class="article-tag">Category</p>
-          <h3 class="article-title">Article Title</h3>
-          <p class="article-excerpt">A short description of the article goes here — two or three sentences summarising the key idea or argument.</p>
-          <div class="article-meta">
-            <span class="article-date">The Walker Review</span>
-            <span class="article-arrow">→</span>
-          </div>
-        </a>
-
-        <a class="article-card" href="#" target="_blank" rel="noopener">
-          <p class="article-tag">Category</p>
-          <h3 class="article-title">Article Title</h3>
-          <p class="article-excerpt">A short description of the article goes here — two or three sentences summarising the key idea or argument.</p>
-          <div class="article-meta">
-            <span class="article-date">The Walker Review</span>
-            <span class="article-arrow">→</span>
-          </div>
-        </a>
-
-        <a class="article-card" href="#" target="_blank" rel="noopener">
-          <p class="article-tag">Category</p>
-          <h3 class="article-title">Article Title</h3>
-          <p class="article-excerpt">A short description of the article goes here — two or three sentences summarising the key idea or argument.</p>
-          <div class="article-meta">
-            <span class="article-date">The Walker Review</span>
-            <span class="article-arrow">→</span>
-          </div>
-        </a>
-
-        <a class="article-card" href="#" target="_blank" rel="noopener">
-          <p class="article-tag">Category</p>
-          <h3 class="article-title">Article Title</h3>
-          <p class="article-excerpt">A short description of the article goes here — two or three sentences summarising the key idea or argument.</p>
-          <div class="article-meta">
-            <span class="article-date">The Walker Review</span>
-            <span class="article-arrow">→</span>
-          </div>
-        </a>
-
-        <a class="article-card" href="#" target="_blank" rel="noopener">
-          <p class="article-tag">Category</p>
-          <h3 class="article-title">Article Title</h3>
-          <p class="article-excerpt">A short description of the article goes here — two or three sentences summarising the key idea or argument.</p>
-          <div class="article-meta">
-            <span class="article-date">The Walker Review</span>
-            <span class="article-arrow">→</span>
-          </div>
-        </a>
-
+      <!-- Articles Panel -->
+      <div class="insights-panel active" id="panel-articles">
+        <div class="insights-intro">
+          <p class="insights-intro-text">
+            The Walker Review explores the behavioural forces that drive markets, shape decisions, and create opportunity. Published monthly.
+          </p>
+          <a class="insights-intro-link" href="https://walkerreview.substack.com" target="_blank" rel="noopener">
+            Subscribe on Substack
+          </a>
+        </div>
+        <div class="articles-grid" id="articles-grid">
+          <div class="articles-loading">Loading articles…</div>
+        </div>
       </div>
+
+      <!-- Reports Panel -->
+      <div class="insights-panel" id="panel-reports">
+        <div class="reports-intro">
+          <p class="reports-intro-text">
+            Quarterly fund updates covering portfolio performance, positioning, and the macro backdrop relevant to our holdings. Published at the close of each quarter.
+          </p>
+        </div>
+        <div class="reports-grid" id="reports-grid">
+          <div class="reports-empty">The first quarterly report will be published at the close of Q3 2025.</div>
+        </div>
+      </div>
+
     </section>
 
   </div><!-- /page-insights -->
@@ -1005,49 +863,93 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-brand">
-      <div class="nav-logo-main" style="color:var(--white); font-family:'Cormorant Garamond',serif; letter-spacing:0.12em; text-transform:uppercase;">Walker Equity Partners</div>
-      <div class="nav-logo-sub" style="font-size:0.6rem; letter-spacing:0.22em; color:var(--gold); text-transform:uppercase; margin-top:6px; font-family:'DM Sans',sans-serif;">London · Toronto</div>
-      <p class="footer-copy">A focused equity fund combining fundamental analysis with quantitative tools to identify systematic mispricings in small and micro-cap markets.</p>
+      <div class="nav-logo-main" style="color:var(--white); font-family:'Playfair Display',serif; letter-spacing:0.08em; text-transform:uppercase;">Walker Equity Partners</div>
+      <div class="nav-logo-sub" style="font-size:0.6rem; letter-spacing:0.22em; color:var(--gold); text-transform:uppercase; margin-top:6px; font-family:'Inter',sans-serif;">London · Toronto</div>
+      <p class="footer-copy">An independent investment manager focused on global small cap equities. Behavioural insight. Fundamental discipline. Long-term conviction.</p>
     </div>
     <div class="footer-links">
       <a onclick="showPage('home')">Home</a>
       <a onclick="showPage('about')">About</a>
-      <a onclick="showPage('team')">Team</a>
       <a onclick="showPage('insights')">Insights</a>
-    </div>
-    <div class="footer-contact">
-      <div style="font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:12px;">Contact</div>
-      <a href="mailto:hello@walkerequitypartners.com">hello@walkerequitypartners.com</a><br>
-      <span style="margin-top:6px; display:block;">London, UK &nbsp;·&nbsp; Toronto, Canada</span>
     </div>
   </footer>
 
   <script>
-    function toggleBio(btn) {
-      const body = btn.nextElementSibling;
-      const isOpen = body.classList.contains('open');
-      body.classList.toggle('open', !isOpen);
-      btn.setAttribute('aria-expanded', String(!isOpen));
-    }
-
+    /* ── Navigation ── */
     function showPage(id) {
-      // Hide all pages
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      // Show target
       document.getElementById('page-' + id).classList.add('active');
-      // Update nav
       document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
       const link = document.getElementById('nav-' + id);
       if (link) link.classList.add('active');
-      // Close mobile menu
       document.getElementById('navLinks').classList.remove('open');
-      // Scroll to top
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function toggleMenu() {
       document.getElementById('navLinks').classList.toggle('open');
     }
+
+    /* ── Insights tabs ── */
+    function showTab(name, btn) {
+      document.querySelectorAll('.insights-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.insights-tab').forEach(b => b.classList.remove('active'));
+      document.getElementById('panel-' + name).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    /* ── RSS feed via allorigins proxy ── */
+    function renderArticles(xml) {
+      const items = Array.from(xml.querySelectorAll('item')).slice(0, 6);
+      if (!items.length) return null;
+      return items.map(item => {
+        const title   = item.querySelector('title')?.textContent?.trim() || '';
+        const link    = item.querySelector('link')?.textContent?.trim() || '#';
+        const pubDate = item.querySelector('pubDate')?.textContent || '';
+        const desc    = item.querySelector('description')?.textContent || '';
+        const tmp = document.createElement('div');
+        tmp.innerHTML = desc;
+        const excerpt = (tmp.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 160) + '…';
+        const date = pubDate ? new Date(pubDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : '';
+        return `
+          <a class="article-card" href="${link}" target="_blank" rel="noopener">
+            <p class="article-tag">The Walker Review</p>
+            <h3 class="article-title">${title}</h3>
+            <p class="article-excerpt">${excerpt}</p>
+            <div class="article-meta">
+              <span class="article-date">${date}</span>
+              <span class="article-arrow">→</span>
+            </div>
+          </a>`;
+      }).join('');
+    }
+
+    async function loadArticles() {
+      const grid = document.getElementById('articles-grid');
+      const FEED = 'https://walkerreview.substack.com/feed';
+      const PROXIES = [
+        url => `https://corsproxy.io/?${encodeURIComponent(url)}`,
+        url => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+        url => `https://thingproxy.freeboard.io/fetch/${url}`,
+      ];
+      const parser = new DOMParser();
+
+      for (const makeProxy of PROXIES) {
+        try {
+          const res = await fetch(makeProxy(FEED), { signal: AbortSignal.timeout(6000) });
+          if (!res.ok) continue;
+          const text = await res.text();
+          const xml  = parser.parseFromString(text, 'text/xml');
+          const html = renderArticles(xml);
+          if (html) { grid.innerHTML = html; return; }
+        } catch (e) { continue; }
+      }
+
+      // All proxies failed - show fallback
+      grid.innerHTML = '<div class="articles-loading">Unable to load articles automatically. <a href="https://walkerreview.substack.com" target="_blank" style="color:var(--royal);">Read on Substack →</a></div>';
+    }
+
+    loadArticles();
   </script>
 
 </body>

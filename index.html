@@ -457,7 +457,7 @@
 
     .articles-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 1px;
       background: var(--border-dark);
       border: 1px solid var(--border-dark);
@@ -836,9 +836,6 @@
           <p class="insights-intro-text">
             The Walker Review explores the behavioural forces that drive markets, shape decisions, and create opportunity. Published monthly.
           </p>
-          <a class="insights-intro-link" href="https://walkerreview.substack.com" target="_blank" rel="noopener">
-            Subscribe on Substack
-          </a>
         </div>
         <div class="articles-grid" id="articles-grid">
           <div class="articles-loading">Loading articles…</div>
@@ -909,11 +906,11 @@
         if (!items.length) throw new Error('Empty');
 
         grid.innerHTML = items.map(item => {
-          const date = item.date ? new Date(item.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : '';
+          const date = item.date || '';
           const excerpt = (item.description || '').trim().slice(0, 160) + '…';
           return `
             <a class="article-card" href="${item.link}" target="_blank" rel="noopener">
-              <p class="article-tag">The Walker Review</p>
+              <p class="article-tag">Article</p>
               <h3 class="article-title">${item.title}</h3>
               <p class="article-excerpt">${excerpt}</p>
               <div class="article-meta">

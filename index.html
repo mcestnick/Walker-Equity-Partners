@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -898,55 +899,33 @@
       btn.classList.add('active');
     }
 
-    /* ── RSS feed via allorigins proxy ── */
-    function renderArticles(xml) {
-      const items = Array.from(xml.querySelectorAll('item')).slice(0, 6);
-      if (!items.length) return null;
-      return items.map(item => {
-        const title   = item.querySelector('title')?.textContent?.trim() || '';
-        const link    = item.querySelector('link')?.textContent?.trim() || '#';
-        const pubDate = item.querySelector('pubDate')?.textContent || '';
-        const desc    = item.querySelector('description')?.textContent || '';
-        const tmp = document.createElement('div');
-        tmp.innerHTML = desc;
-        const excerpt = (tmp.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 160) + '…';
-        const date = pubDate ? new Date(pubDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : '';
-        return `
-          <a class="article-card" href="${link}" target="_blank" rel="noopener">
-            <p class="article-tag">The Walker Review</p>
-            <h3 class="article-title">${title}</h3>
-            <p class="article-excerpt">${excerpt}</p>
-            <div class="article-meta">
-              <span class="article-date">${date}</span>
-              <span class="article-arrow">→</span>
-            </div>
-          </a>`;
-      }).join('');
-    }
-
+    /* ── Load articles from local JSON ── */
     async function loadArticles() {
       const grid = document.getElementById('articles-grid');
-      const FEED = 'https://walkerreview.substack.com/feed';
-      const PROXIES = [
-        url => `https://corsproxy.io/?${encodeURIComponent(url)}`,
-        url => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
-        url => `https://thingproxy.freeboard.io/fetch/${url}`,
-      ];
-      const parser = new DOMParser();
+      try {
+        const res  = await fetch('articles.json');
+        if (!res.ok) throw new Error('Not found');
+        const items = await res.json();
+        if (!items.length) throw new Error('Empty');
 
-      for (const makeProxy of PROXIES) {
-        try {
-          const res = await fetch(makeProxy(FEED), { signal: AbortSignal.timeout(6000) });
-          if (!res.ok) continue;
-          const text = await res.text();
-          const xml  = parser.parseFromString(text, 'text/xml');
-          const html = renderArticles(xml);
-          if (html) { grid.innerHTML = html; return; }
-        } catch (e) { continue; }
+        grid.innerHTML = items.map(item => {
+          const date = item.date ? new Date(item.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : '';
+          const excerpt = (item.description || '').trim().slice(0, 160) + '…';
+          return `
+            <a class="article-card" href="${item.link}" target="_blank" rel="noopener">
+              <p class="article-tag">The Walker Review</p>
+              <h3 class="article-title">${item.title}</h3>
+              <p class="article-excerpt">${excerpt}</p>
+              <div class="article-meta">
+                <span class="article-date">${date}</span>
+                <span class="article-arrow">→</span>
+              </div>
+            </a>`;
+        }).join('');
+
+      } catch (err) {
+        grid.innerHTML = '<div class="articles-loading"><a href="https://walkerreview.substack.com" target="_blank" style="color:var(--royal);">Read The Walker Review on Substack →</a></div>';
       }
-
-      // All proxies failed - show fallback
-      grid.innerHTML = '<div class="articles-loading">Unable to load articles automatically. <a href="https://walkerreview.substack.com" target="_blank" style="color:var(--royal);">Read on Substack →</a></div>';
     }
 
     loadArticles();

@@ -13,29 +13,15 @@ jobs:
 
       - name: Fetch RSS and save as JSON
         run: |
-          curl -s -A "Mozilla/5.0 (compatible; RSS reader)" \
+          curl -s -L \
+            -H "Accept: application/rss+xml, application/xml, text/xml" \
+            -H "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" \
             "https://walkerreview.substack.com/feed" \
             -o feed.xml
           python3 -c "
           import json, xml.etree.ElementTree as ET, re
-          tree = ET.parse('feed.xml')
-          root = tree.getroot()
-          items = []
-          for item in root.findall('.//item')[:6]:
-              title = item.findtext('title') or ''
-              link = item.findtext('link') or ''
-              date = item.findtext('pubDate') or ''
-              desc = re.sub('<[^>]+>', '', item.findtext('description') or '').strip()[:160]
-              items.append({'title': title, 'link': link, 'date': date, 'description': desc})
-          with open('articles.json', 'w') as f:
-              json.dump(items, f)
-          print(f'Saved {len(items)} articles')
-          "
-
-      - name: Commit articles.json
-        run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add articles.json
-          git diff --staged --quiet || git commit -m "Update articles"
-          git push
+          with open('feed.xml', 'r', encoding='utf-8') as f:
+              content = f.read()
+          print('First 200 chars:', content[:200])
+          root = ET.fromstring(content)
+          items
